@@ -1,7 +1,7 @@
 /*11.2 Write a program to rename the given file, after renaming the file delete
 the renamed file. (Accept the file name using command line arguments.)*/
 
-package Lab_Unit_11;
+package Lab_Unit__11;
 
 import java.io.File;
 import java.io.*;

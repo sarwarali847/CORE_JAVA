@@ -1,7 +1,7 @@
 /*11.3 Write a program to create a directory and check whether the directory is
 created. */
 
-package Lab_Unit_11;
+package Lab_Unit__11;
 
 import java.io.File;
 import java.io.IOException;

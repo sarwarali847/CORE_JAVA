@@ -3,7 +3,7 @@ creating, initializing, and staring two Thread objects from your class. The
 threads will execute concurrently and display Java is hot, aromatic, and
 invigorating to the console window*/
 
-package Lab_Unit_15;
+package Lab_Unit__15;
 
 public class Lab_15_1 {
 

@@ -1,7 +1,7 @@
 /*Write a program to get the input from the user and store it into file.
 Using Reader and Writer file*/
 
-package Lab_Unit_12;
+package Lab_Unit__12;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

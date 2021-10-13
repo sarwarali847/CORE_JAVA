@@ -1,7 +1,7 @@
 /*Write a program to get the reference to the current thread by calling
 currentThread() method*/
 
-package Lab_Unit_14;
+package Lab_Unit__14;
 
 public class Lab_14_1{
 	

@@ -4,7 +4,7 @@ MyClass, which is not a subclass of Thread. MyClass will implement the
 runnable interface and objects of MyClass will be executed as threads by
 passing them as arguments to the Thread constructor.*/
 
-package Lab_Unit_15;
+package Lab_Unit__15;
 
 public class Lab_15_2 {
 

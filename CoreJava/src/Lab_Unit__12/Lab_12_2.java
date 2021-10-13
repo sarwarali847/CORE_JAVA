@@ -1,7 +1,7 @@
 /*Write a program to accept specified number of characters as input and
 converts them into uppercase characters.*/
 
-package Lab_Unit_12;
+package Lab_Unit__12;
 
 import java.io.BufferedReader;
 import java.io.IOException;
