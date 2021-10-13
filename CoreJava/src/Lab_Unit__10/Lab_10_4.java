@@ -1,7 +1,7 @@
 
 /*Write a program to illustrate usage of try/catch with finally clause*/
 
-package Lab_Unit_10;
+package Lab_Unit__10;
 
 public class Lab_10_4 {
 

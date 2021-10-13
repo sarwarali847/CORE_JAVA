@@ -1,7 +1,7 @@
 /* Write a program for example of multiple catch statements occurring in a
 program   */
 
-package Lab_Unit_10;
+package Lab_Unit__10;
 
 public class Lab_10_2 {
 

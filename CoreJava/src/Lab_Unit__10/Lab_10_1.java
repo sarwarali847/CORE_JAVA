@@ -2,7 +2,7 @@
 In this check
 whether the given array size is negative or not.*/
 
-package Lab_Unit_10;
+package Lab_Unit__10;
 
 public class Lab_10_1 {
 

@@ -1,7 +1,7 @@
 /*Write a program to illustrate sub class exception precedence over base
 class.*/
 
-package Lab_Unit_10;
+package Lab_Unit__10;
 
 import java.io.IOException;
 

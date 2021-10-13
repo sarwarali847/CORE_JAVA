@@ -1,6 +1,6 @@
 /*/*Write a program for creation of user defined exception*/
 
-package Lab_Unit_10;
+package Lab_Unit__10;
 
 public class Lab_10_5 {
 
