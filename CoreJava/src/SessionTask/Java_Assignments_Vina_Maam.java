@@ -54,7 +54,8 @@ public class Java_Assignments_Vina_Maam {
 		{
 		case 1:
 			int id;
-			String b_name,a_name;
+			String b_name;
+			String a_name = "[ ";
 			double p_book;
 			System.out.println();
 			System.out.print("Enter Book Id:");
@@ -64,12 +65,29 @@ public class Java_Assignments_Vina_Maam {
 			b_name=sc.nextLine();
 			System.out.print("Enter Book Price:");
 			p_book=sc.nextDouble();
-			System.out.print("Enter Author Name:");
-			sc.nextLine();
-			a_name=sc.nextLine();
+			System.out.print("Enter number of authors:");
+			int n;
+			n=sc.nextInt();
+			System.out.println("Enter Author Names:");
+			//booklist.add
+	        String[] author=new String[n];
+			for(int j=0;j<n;j++)
+			{
+				author[j]=sc.next();
+			}
+			for(int i=0;i<n;i++)
+			{
+				if(i<(n-1))
+				a_name=a_name+author[i]+", ";
+				if((i+1)==n)
+				{
+					a_name=a_name+author[i]+" ]";
+				}
+			}
+				
 			
 			booklist.add(new Book(id,b_name.toUpperCase(),p_book,a_name.toUpperCase()));
-			System.out.println("'"+b_name+"'"+" Having id '"+id+"' is added in List.");
+				
 			
 //			Iterator<Book> itr=booklist.iterator();
 //			while(itr.hasNext())
@@ -89,7 +107,7 @@ public class Java_Assignments_Vina_Maam {
 		while(itr.hasNext())
 		{
 			Book b=itr.next();
-			if(b.Book_Id==b_id)
+			if(b.getBook_Id()==b_id)
 			{
 				System.out.println(b);
 				f=0;
@@ -113,7 +131,7 @@ public class Java_Assignments_Vina_Maam {
 		name=name.toUpperCase();
 		for(Book obj2:booklist)
 		{
-			if(obj2.Book_Name.contains(name))
+			if(obj2.getBook_Name().contains(name))
 			{
 				System.out.println(obj2);
 			}
@@ -130,13 +148,13 @@ public class Java_Assignments_Vina_Maam {
 		name2=name2.toUpperCase();
 		for(Book obj3:booklist)
 		{
-			if(obj3.Book_Author.contains(name2))
+			if(obj3.getBook_Author().contains(name2))
 			{
 				System.out.println(obj3);
 				v1="FALSE";
 			
 			}
-			else if(!(obj3.Book_Author.contains(name2)))
+			else if(!(obj3.getBook_Author().contains(name2)))
 			{
 				v1="TRUE";
 				continue;	
@@ -156,7 +174,7 @@ public class Java_Assignments_Vina_Maam {
 		try {
 		for(Book obj4:booklist)
 		{
-			if(obj4.Book_Id==d_id)
+			if(obj4.getBook_Id()==d_id)
 			{
 				booklist.remove(obj4);
 			}
@@ -184,16 +202,67 @@ public class Java_Assignments_Vina_Maam {
 }
 
 class Book{
-	int Book_Id;
-	String Book_Name;
-	double Book_Price;
-	String Book_Author;
+	private int Book_Id;
+	private String Book_Name;
+	private double Book_Price;
+	private String Book_Author;
 	public Book(int book_Id, String book_Name, double book_Price, String book_Author) {
 		Book_Id = book_Id;
 		Book_Name = book_Name;
 		Book_Price = book_Price;
 		Book_Author = book_Author;
 	}
+	
+	
+	
+	public int getBook_Id() {
+		return Book_Id;
+	}
+
+
+
+	public void setBook_Id(int book_Id) {
+		Book_Id = book_Id;
+	}
+
+
+
+	public String getBook_Name() {
+		return Book_Name;
+	}
+
+
+
+	public void setBook_Name(String book_Name) {
+		Book_Name = book_Name;
+	}
+
+
+
+	public double getBook_Price() {
+		return Book_Price;
+	}
+
+
+
+	public void setBook_Price(double book_Price) {
+		Book_Price = book_Price;
+	}
+
+
+
+	public String getBook_Author() {
+		return Book_Author;
+	}
+
+
+
+	public void setBook_Author(String book_Author) {
+		Book_Author = book_Author;
+	}
+
+
+
 	@Override
 	public String toString() {
 		
