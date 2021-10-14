@@ -1,4 +1,5 @@
 /*11. Map Interface
+
 Create a Map collection of 10 employees (eid,ename,esal).
  Consider empid as key and empObj as a value for the key. 
 	11.1 First Display these collection in sorted order. 
@@ -9,39 +10,46 @@ Create a Map collection of 10 employees (eid,ename,esal).
 
 package SessionTask;
 
-import java.util.HashMap;
-
-import com.sun.javafx.collections.MappingChange.Map;
+import java.util.*;
+import java.util.Map.Entry;
 
 public class session_task_11 {
 
 	public static void main(String[] args) {
-	Employee emp1=new Employee(121, "Rahul", 78000);
-	Employee emp2=new Employee(457, "John", 25000);
-	Employee emp3=new Employee(100, "Alex", 75000);
-	Employee emp4=new Employee(104, "Tony", 89000);
-	Employee emp5=new Employee(221, "Conor", 45000);
-	Employee emp6=new Employee(360, "Virat", 68000);
-	Employee emp7=new Employee(348, "Rohit", 15000);
-	Employee emp8=new Employee(909, "Rajat", 58000);
-	Employee emp9=new Employee(433, "Raman", 10000);
-	Employee emp10=new Employee(897, "Tewatia",71000);
+    Map<Integer, Employee> emp = new HashMap<Integer, Employee>();
+	emp.put(10, new Employee(121, "Rahul", 78000));
+	emp.put(1,new Employee(457, "John", 25000));
+	emp.put(9,new Employee(100, "Alex", 75000));
+	emp.put(19,new Employee(104, "Tony", 89000));
+	emp.put(4,new Employee(221, "Conor", 45000));
+	emp.put(6,new Employee(360, "Virat", 68000));
+	emp.put(9,new Employee(348, "Rohit", 15000));
+	emp.put(5,new Employee(909, "Rajat", 58000));
+	emp.put(9,new Employee(433, "Raman", 10000));
+	emp.put(6,new Employee(897, "Tewatia",71000));
 	
-	HashMap<String, Employee> map=new HashMap<String, Employee>();
-	map.put(emp1.getEid(), emp1);
-	map.put(emp2.getEid(), emp2);
-	map.put(emp3.getEid(), emp3);
-	map.put(emp4.getEid(), emp4);
-	map.put(emp5.getEid(), emp5);
-	map.put(emp6.getEid(), emp6);
-	map.put(emp7.getEid(), emp7);
-	map.put(emp8.getEid(), emp8);
-	map.put(emp9.getEid(), emp9);
-	map.put(emp10.getEid(), emp10);
+	System.out.println("Before Sorting");
+	emp.forEach((k,v)->System.out.println(k+" "+v.show()));
 	
-   Iterable<Employee> itr=map.values();
-	   System.out.println(itr);
-  	
+	System.out.println("After Sorting");
+	Map<Integer, Employee> sortedemp=new TreeMap<Integer, Employee>();
+	sortedemp.forEach((k,v)->System.out.println(k+" "+v.show()));
+	
+	Iterator<Map.Entry<Integer, Employee>> itr=sortedemp.entrySet().iterator();
+	
+	Map<Integer, Employee> newMap=new TreeMap<Integer, Employee>();
+	System.out.println("All employees having salary more than 15000.");
+	while(itr.hasNext())
+	{
+		Map.Entry<Integer, Employee> item=itr.next();
+		if(item.getValue().esal>15000)
+			itr.remove();
+		else
+		{
+			newMap.put(item.getKey(), item.getValue());
+			System.out.println(item.getValue().show());
+		}
+	}
 	
 	
 
@@ -49,10 +57,10 @@ public class session_task_11 {
 
 }
 class Employee{
-	private String eid;
-	private String ename;
-	private double esal;
-	public Employee(String eid, String ename, double esal) {
+	int eid;
+	String ename;
+	double esal;
+	Employee(int eid, String ename, double esal) {
 		//super();
 		this.eid = eid;
 		this.ename = ename;
@@ -61,55 +69,9 @@ class Employee{
 	
 	
 	
-	public Employee(int i, String ename2, double esal2) {
-		// TODO Auto-generated constructor stub
-	}
-
-
-
-	public String getEid() {
-		return eid;
-	}
-
-
-
-	public void setEid(String eid) {
-		this.eid = eid;
-	}
-
-
-
-	public String getEname() {
-		return ename;
-	}
-
-
-
-	public void setEname(String ename) {
-		this.ename = ename;
-	}
-
-
-
-	public double getEsal() {
-		return esal;
-	}
-
-
-
-	public void setEsal(double esal) {
-		this.esal = esal;
-	}
-
-   @Override
-     public boolean equals(Object o) {
 	
-	   
-	 return super.equals(o);
-}
 
-	@Override
-	public String toString() {
+	public String show() {
 		
 		return "Employe Id:"+eid+" , Name:"+ename+" , Salary:"+esal;
 	}
