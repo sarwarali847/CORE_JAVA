@@ -1,77 +1,152 @@
+/*12. Comparator
+Create a collection for 5 Movies (private members ratings,name,year)
+Using switch statements create a menu driven program
+
+Enter your choice:
+1. Sort by ratings
+2. Sort by name
+3. Sort by year
+4. Sort by ratings in Reverse
+5. Sort by name in Reverse
+6. Sort by year in Reverse
+7. EXIT*/
+
 package SessionTask;
 import java.util.*;
 
 public class session_task_12 {
-	public void show(List<Movies> movie) {
-
-		for (Movies movies : movie) {
-			System.out.println(movies);
-		}
-	}
 	
 	public static void main(String[] args) {
-		List<Movies> movie = new ArrayList<Movies>();
-		movie.add(new Movies(4, "Dangal", 2000));
-		movie.add(new Movies(5, "Ready", 2005));
-		movie.add(new Movies(2, "Super", 1999));
-		movie.add(new Movies(3, "Legend", 2012));
-		Scanner in = new Scanner(System.in);
-		Comparator cm = new Comparator();
-
-		while (true) {
-			System.out.println(
-					"\n 1.Sort by Ratings \n 2.Sort by name \n 3.Sort by year \n 4.Sort by ratings in Reverse \n 5.Sort By name in Reverse\n 6.Sort by year in Reverse \n 7.Exit");
-			System.out.println("Enter Your Choice");
-			int ch = in.nextInt();
-			switch (ch) {
-			case 1:
-				Collections.sort(movie, new SortByRating());
-				System.out.println("Sorted by Ratings");
-				cm.show(movie);
-
-				break;
-			case 2:
-				Collections.sort(movie, new SortByName());
-				System.out.println("Sorted by name");
-				cm.show(movie);
-				break;
-			case 3:
-				Collections.sort(movie, new SortByYear());
-				System.out.println("Sorted by year");
-				cm.show(movie);
-				break;
-			case 4:
-				Collections.sort(movie, new SortByRating1());
-				System.out.println("Sorted by Ratings in reverse");
-				cm.show(movie);
-				break;
-			case 5:
-				Collections.sort(movie, new SortByName1());
-				System.out.println("Sorted by name  in reverse");
-				cm.show(movie);
-				break;
-			case 6:
-				Collections.sort(movie, new SortByYear1());
-				System.out.println("Sorted by year in reverse");
-				cm.show(movie);
-				break;
-			case 7:
-				System.exit(0);
-			}
-
-		}
-
+	 
+		ArrayList<Movies> al=new ArrayList<Movies>();
+		Movies m1=new Movies(7.5f,"Dangal",2018);
+		Movies m2=new Movies(8.5f,"Super 30",2016);
+		Movies m3=new Movies(9f,"Boduguard",2015);
+		Movies m4=new Movies(6.3f,"Shershah",2021);
+		Movies m5=new Movies(10f,"Hera Pheri",2008);
+		Movies m6=new Movies(8.5f,"Udan",2020);
+		Movies m7=new Movies(9.5f,"Badhai Ho",2019);
+		Movies m8=new Movies(9.9f,"Fanaa",2006);
+		Movies m9=new Movies(6.9f,"Mother India",1997);
+		Movies m10=new Movies(8.8f,"Ashique",2019);
+		al.add(m1);
+		al.add(m2);
+		al.add(m3);
+		al.add(m4);
+		al.add(m5);
+		al.add(m6);
+		al.add(m7);
+		al.add(m8);
+		al.add(m9);
+		al.add(m10);
+		
+			    
+		
+		int c;
+		do {
+			Scanner sc=new Scanner(System.in);
+			System.out.println("========");
+			System.out.println("M E N U ");
+			System.out.println("========");
+			System.out.println("1. Sort by ratings\n2. Sort by name\n3. Sort by year\n4. Sort by ratings in Reverse\n5. Sort by name in Reverse\n6. Sort by year in Reverse\n7. Exit");
+		    System.out.println();
+			System.out.print("Enter choice:");
+		    c=sc.nextInt();
+		    switch(c)
+		    {
+		    case 1:
+		    	Comparator<Movies> cm1=Comparator.comparing(Movies::getRatings);
+		    	Collections.sort(al,cm1);
+		    	System.out.println();
+		    	System.out.println("Sorting List by Rating:");
+		    	System.out.println("=======================================");
+		    	
+		    	for(Movies v1:al)
+		    	{
+		    		System.out.println(v1);
+		    	}
+		    	break;
+		    	
+		    case 2:
+		    	Comparator<Movies> cm2=Comparator.comparing(Movies::getName);
+		    	Collections.sort(al,cm2);
+		    	System.out.println();
+		    	System.out.println("Sorting List by Name:");
+		    	System.out.println("=======================================");
+		    	
+		    	for(Movies v2:al)
+		    	{
+		    		System.out.println(v2);
+		    	}
+		    	break;
+		    	
+		    case 3:
+		    	Comparator<Movies> cm3=Comparator.comparing(Movies::getYear);
+		    	Collections.sort(al,cm3);
+		    	System.out.println();
+		    	System.out.println("Sorting List by Year:");
+		    	System.out.println("=======================================");
+		    	
+		    	for(Movies v3:al)
+		    	{
+		    		System.out.println(v3);
+		    	}
+		    	break;
+		    	
+		    case 4:
+		    	Comparator<Movies> cm4=Comparator.comparing(Movies::getRatings);
+		    	Collections.sort(al,cm4);
+		    	Collections.reverse(al);
+		    	System.out.println();
+		    	System.out.println("Sorting List by Rating in Reverse Order:");
+		    	System.out.println("=======================================");
+		    	for(Movies v4:al)
+		    	{
+		    		System.out.println(v4);
+		    	}
+		    	
+		    	break;
+		    	
+		    case 5:
+		    	Comparator<Movies> cm5=Comparator.comparing(Movies::getName);
+		    	Collections.sort(al,cm5);
+		    	Collections.reverse(al);
+		    	System.out.println();
+		    	System.out.println("Sorting List by Name in Reverse Order:");
+		    	System.out.println("=======================================");
+		    	for(Movies v5:al)
+		    	{
+		    		System.out.println(v5);
+		    	}
+		    	
+		    	break;
+		    case 6:
+		    	Comparator<Movies> cm6=Comparator.comparing(Movies::getYear);
+		    	Collections.sort(al,cm6);
+		    	Collections.reverse(al);
+		    	System.out.println();
+		    	System.out.println("Sorting List by Year in Reverse Order:");
+		    	System.out.println("=======================================");
+		    	for(Movies v6:al)
+		    	{
+		    		System.out.println(v6);
+		    	}
+		    	
+		    	break;
+		    
+		    }
+		
+		  }while(c!=7);  
+		
 	}
-
 }
-	
-
+		
 class Movies {
-	int ratings;
-	String name;
-	int year;
+	private float ratings;
+	private String name;
+	private int year;
 
-	public Movies(int ratings, String name, int year) {
+	public Movies(float ratings, String name, int year) {
 
 		this.ratings = ratings;
 		this.name = name;
@@ -80,66 +155,36 @@ class Movies {
 
 	@Override
 	public String toString() {
-		return "ratings=" + ratings + ", name=" + name + ", year=" + year;
+		return "Rating=" + ratings + ", Movie Name=" + name + ", Year=" + year;
 	}
+
+	public float getRatings() {
+		return ratings;
+	}
+
+	public void setRatings(float ratings) {
+		this.ratings = ratings;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+	
+	
+	
 
 }
 
-class SortByRating implements Comparator<Movies> {
 
-	@Override
-	public int compare(Movies o1, Movies o2) {
-		// TODO Auto-generated method stub
-		return o1.ratings - o2.ratings;
-	}
-
-}
-
-class SortByName implements Comparator<Movies> {
-
-	@Override
-	public int compare(Movies o1, Movies o2) {
-		// TODO Auto-generated method stub
-		return o1.name.compareTo(o2.name);
-	}
-
-}
-
-class SortByYear implements Comparator<Movies> {
-
-	@Override
-	public int compare(Movies o1, Movies o2) {
-		// TODO Auto-generated method stub
-		return o1.year - o2.year;
-	}
-
-}
-
-class SortByRating1 implements Comparator<Movies> {
-
-	@Override
-	public int compare(Movies o1, Movies o2) {
-		// TODO Auto-generated method stub
-		return o2.ratings - o1.ratings;
-	}
-
-}
-
-class SortByName1 implements Comparator<Movies> {
-
-	@Override
-	public int compare(Movies o1, Movies o2) {
-		// TODO Auto-generated method stub
-		return o2.name.compareTo(o1.name);
-	}
-
-}
-
-class SortByYear1 implements Comparator<Movies> {
-
-	@Override
-	public int compare(Movies o1, Movies o2) {
-		// TODO Auto-generated method stub
-		return o2.year - o1.year;
-	}
-}
